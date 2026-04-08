@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lái Xe Hộ Quảng Ngãi - Hotline: 0949.850.830</title>
+    <title>Dịch Vụ Lái Xe Hộ Quảng Ngãi hotline:0949.850.830. Giá Rẻ,phục vụ 24/7, gọi tài xế nhanh.</title>
     <link rel="icon" type="image/png" href="laixeho/anh1.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        html {
+            font-size: 18px;
+        }
+
         :root {
             /* 🎀 BẢNG MÀU DARK LUXURY BỞI BÉ LÔI 🎀 */
             --primary: #E6B325; 
-            --bg-dark: #0B132B; 
-            --card-dark: #1C2541; 
+            --bg-dark: #000000; 
+            --card-dark: #121212; 
             --text-gray: #A1B0D1; 
             --success: #22c55e;
             --zalo-blue: #0068ff;
@@ -63,13 +67,13 @@
         .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 1px; }
         .logo span { color: var(--primary); }
         .status { font-size: 0.75rem; color: var(--success); margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 5px; font-weight: 600; }
-        .status i { font-size: 8px; animation: blink 1s infinite; }
+        .status i { font-size: 10px; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         /* TAB NAVIGATION (4 Tabs) */
         .nav-tabs {
             display: flex;
-            background: rgba(28, 37, 65, 0.85); 
+            background: rgba(18, 18, 18, 0.85); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             padding: 12px 0 18px 0; 
@@ -100,7 +104,7 @@
         /* Khi tab được kích hoạt: Nổi bổng lên! */
         .tab-btn.active i {
             background: var(--primary);
-            color: #0B132B;
+            color: #000000;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -131,7 +135,7 @@
 
         .hero-card { background: linear-gradient(135deg, var(--card-dark), var(--bg-dark)); padding: 30px 25px; border-radius: 20px; margin-bottom: 20px; text-align: center; border: 1px solid rgba(230, 179, 37, 0.3); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .hero-card h2 { font-size: 1.6rem; margin-bottom: 15px; line-height: 1.2; color: var(--primary); font-weight: 800; }
-        .btn-call-large { background: var(--primary); color: #0B132B; width: 100%; padding: 18px; border-radius: 15px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(230, 179, 37, 0.3); margin-top: 15px; transition: 0.2s; }
+        .btn-call-large { background: var(--primary); color: #000000; width: 100%; padding: 18px; border-radius: 15px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(230, 179, 37, 0.3); margin-top: 15px; transition: 0.2s; }
         .btn-call-large:active { transform: scale(0.98); }
         .btn-zalo { background: var(--zalo-blue); color: white; width: 100%; padding: 15px; border-radius: 15px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; margin-top: 12px; }
 
@@ -142,15 +146,15 @@
         .service-box h4 { font-size: 1.1rem; color: #fff; font-weight: 600; margin-bottom: 10px; line-height: 1.4; min-height: 45px; }
         .service-box p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
         
-        .text-highlight-box { background-color: var(--primary); color: #0B132B; padding: 5px 12px; line-height: 1.8; font-weight: 700; font-size: 0.85rem; border-radius: 5px; display: inline-block; }
-        .text-highlight-box a { color: #0B132B; text-decoration: none; }
+        .text-highlight-box { background-color: var(--primary); color: #000000; padding: 5px 12px; line-height: 1.8; font-weight: 700; font-size: 0.85rem; border-radius: 5px; display: inline-block; }
+        .text-highlight-box a { color: #000000; text-decoration: none; }
 
         .party-banner { display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); }
         @media (min-width: 768px) { .party-banner { flex-direction: row; } }
-        .party-banner-left { background: linear-gradient(135deg, #1C2541, #10182E); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
+        .party-banner-left { background: linear-gradient(135deg, #121212, #0A0A0A); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
         .party-banner-left .sub-title { color: var(--primary); font-weight: 800; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; }
         .party-banner-left h2 { color: white; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px; }
-        .party-banner-left .btn-banner { background-color: var(--primary); color: #0B132B; padding: 14px 28px; text-decoration: none; font-weight: 800; font-size: 1rem; border-radius: 8px; width: max-content; }
+        .party-banner-left .btn-banner { background-color: var(--primary); color: #000000; padding: 14px 28px; text-decoration: none; font-weight: 800; font-size: 1rem; border-radius: 8px; width: max-content; }
         .party-banner-right { flex: 1; min-height: 250px; background: #000; }
         /* 🎀 Bé Lôi chuyển chế độ hiển thị từ "cover" sang "contain" để KHÔNG BAO GIỜ bị cắt xén ảnh, và lấp đầy khoảng trống bằng màu nền tối. 🎀 */
         .party-banner-right img { 
@@ -182,7 +186,7 @@
         .footer-info p { font-size: 0.8rem; color: var(--text-gray); margin-bottom: 10px; }
 
         .step { background: var(--card-dark); margin-bottom: 15px; padding: 20px; border-radius: 15px; display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .step-num { background: var(--primary); color: #0B132B; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(230, 179, 37, 0.2); }
+        .step-num { background: var(--primary); color: #000000; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(230, 179, 37, 0.2); }
         .step-txt h4 { color: #fff; margin-bottom: 5px; font-size: 1.1rem; }
         .step-txt p { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; }
 
@@ -200,9 +204,12 @@
         .floating-socials a.zl { background-color: #0068ff; }
         .floating-socials a.fb { background-color: #1877f2; }
         .floating-socials a.mail { background-color: #ea4335; }
+        .floating-socials a.phone { background-color: var(--success); }
         .floating-socials a:nth-child(1) { animation-delay: 0s; }
         .floating-socials a:nth-child(2) { animation-delay: 0.2s; }
         .floating-socials a:nth-child(3) { animation-delay: 0.4s; }
+        .floating-socials a:nth-child(4) { animation-delay: 0.6s; }
+
 
         @keyframes floatBubble {
             0%, 100% { transform: translateY(0); }
@@ -232,7 +239,7 @@
         .slide { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
         .slide.active { opacity: 1; z-index: 1; }
         /* Lớp bóng mờ đã được Bé Lôi làm mờ hơn để không che khuất hình ảnh. */
-        .slider-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 25%; background: linear-gradient(to top, rgba(11,19,43,0.5), transparent); z-index: 2; pointer-events: none; }
+        .slider-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 25%; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); z-index: 2; pointer-events: none; }
     </style>
 </head>
 <body>
@@ -445,6 +452,7 @@
     </main>
 
     <div class="floating-socials">
+        <a href="tel:0949850830" class="phone"><i class="fa-solid fa-phone-volume"></i></a>
         <a href="https://zalo.me/0949850830" class="zl"><i class="fa-solid fa-comment-dots"></i></a>
         <a href="https://www.facebook.com/share/1JMHbVL4QQ/?mibextid=wwXIfr" target="_blank" class="fb"><i class="fa-brands fa-facebook"></i></a>
         <a href="mailto:laixehoquangngai@gmail.com" class="mail"><i class="fa-solid fa-envelope"></i></a>
