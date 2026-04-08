@@ -2,8 +2,12 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-     <meta name="description" content="Dịch Vụ Lái Xe Hộ Quảng Ngãi hotline:0949.850.830. Giá Rẻ,phục vụ 24/7, gọi tài xế nhanh">
     
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta name="description" content="Dịch Vụ Lái Xe Hộ Quảng Ngãi hotline:0949.850.830. Giá Rẻ,phục vụ 24/7, gọi tài xế nhanh">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Lái Xe Hộ Quảng Ngãi - Hotline: 0949.850.830">
     <meta property="og:description" content="Dịch Vụ Lái Xe Hộ Quảng Ngãi hotline:0949.850.830. Giá Rẻ,phục vụ 24/7, gọi tài xế nhanh">
@@ -366,7 +370,7 @@
                     <div class="service-box">
                         <img src="laixeho/anh4.png" alt="Booking">
                         <h4>Booking Service</h4>
-                        <br> <br>
+                        <br> <br> <br>
                         <span class="text-highlight-box">
                             <a href="tel:0949850830">Gọi ngay để đặt tài xế gần<br>bạn nhất</a>
                         </span>
@@ -566,6 +570,36 @@
                 slides[currentSlide].classList.add('active');
             }, 3000); 
         }
+
+        // 🎀 KHIÊN CHỐNG TRỘM CỦA BÉ LÔI 🎀
+        // 1. Chặn click chuột phải
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. Chặn các phím tắt F12, Ctrl+Shift+I, Ctrl+U...
+        document.onkeydown = function(e) {
+            // Chặn F12
+            if(e.keyCode == 123) {
+                return false;
+            }
+            // Chặn Ctrl+Shift+I (Mở DevTools)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Chặn Ctrl+Shift+C (Chọn Element)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            // Chặn Ctrl+Shift+J (Mở Console)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Chặn Ctrl+U (Xem Source Code)
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        };
     </script>
 </body>
 </html>
