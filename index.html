@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lái Xe Hộ Quảng Ngãi - Hotline: 0949.850.830</title>
-    
+    <link rel="icon" type="image/png" href="laixeho/anh1.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #FFD700; /* Vàng Gold đẳng cấp */
-            --bg-dark: #0f172a;
-            --card-dark: #1e293b;
-            --text-gray: #94a3b8;
+            /* 🎀 BẢNG MÀU DARK LUXURY BỞI BÉ LÔI 🎀 */
+            --primary: #E6B325; 
+            --bg-dark: #0B132B; 
+            --card-dark: #1C2541; 
+            --text-gray: #A1B0D1; 
             --success: #22c55e;
             --zalo-blue: #0068ff;
+            --text-title: #FFFFFF; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -33,102 +35,265 @@
         header {
             padding: 20px;
             text-align: center;
-            background: linear-gradient(to bottom, #1e293b, var(--bg-dark));
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            background: linear-gradient(to bottom, var(--card-dark), var(--bg-dark));
+            border-bottom: 1px solid rgba(230, 179, 37, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
         }
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
+            margin-bottom: 8px;
+            box-shadow: 0 0 10px rgba(230, 179, 37, 0.3);
+            transition: width 0.3s ease, height 0.3s ease; /* Thêm chuyển động mượt */
+        }
+        /* 🎀 Bé Lôi tăng kích thước logo một chút trên màn hình máy tính lớn 🎀 */
+        @media (min-width: 1024px) {
+            .logo-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
         .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 1px; }
         .logo span { color: var(--primary); }
-        .status { font-size: 0.75rem; color: var(--success); margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .status { font-size: 0.75rem; color: var(--success); margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 5px; font-weight: 600; }
         .status i { font-size: 8px; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* TAB NAVIGATION (DƯỚI ĐÁY ĐIỆN THOẠI) */
+        /* TAB NAVIGATION (4 Tabs) */
         .nav-tabs {
             display: flex;
-            background: var(--card-dark);
-            padding: 10px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(28, 37, 65, 0.85); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 0 18px 0; 
+            border-top: 1px solid rgba(230, 179, 37, 0.2);
             position: fixed;
             bottom: 0; width: 100%; z-index: 1000;
-            padding-bottom: env(safe-area-inset-bottom);
+            padding-bottom: calc(18px + env(safe-area-inset-bottom));
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.6);
+            justify-content: space-around;
         }
         .tab-btn {
             flex: 1; border: none; background: none; color: var(--text-gray);
-            font-size: 0.7rem; font-weight: 600; cursor: pointer;
+            font-size: 0.65rem; font-weight: 600; cursor: pointer;
             display: flex; flex-direction: column; align-items: center; gap: 5px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+            position: relative;
         }
-        .tab-btn i { font-size: 1.3rem; }
-        .tab-btn.active { color: var(--primary); }
+        .tab-btn i { 
+            font-size: 1.3rem; 
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2;
+        }
+        .tab-btn span {
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        /* Khi tab được kích hoạt: Nổi bổng lên! */
+        .tab-btn.active i {
+            background: var(--primary);
+            color: #0B132B;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-24px); 
+            box-shadow: 0 5px 15px rgba(230, 179, 37, 0.6), 0 0 0 6px var(--bg-dark); 
+            margin-bottom: -22px; 
+            font-size: 1.5rem;
+        }
+        .tab-btn.active span {
+            color: var(--primary);
+            font-weight: 800;
+            transform: translateY(2px);
+        }
 
         /* CONTENT AREA */
-        main { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 100px; }
+        main { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 120px; }
         .tab-content { display: none; animation: slideUp 0.3s ease-out; }
         .tab-content.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* TRANG CHỦ */
-        .hero-card {
-            background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
-            padding: 25px; border-radius: 20px; margin-bottom: 20px;
-            text-align: center;
+        .intro-section { background: var(--card-dark); padding: 25px 15px; border-radius: 20px; margin-bottom: 20px; text-align: center; color: var(--text-title); border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .intro-section h1 { font-size: 1.5rem; font-weight: 800; line-height: 1.4; margin-bottom: 15px; }
+        .intro-hotline { color: var(--primary); font-weight: 800; font-size: 1.25rem; margin-bottom: 15px; display: block; letter-spacing: 1px; }
+        .intro-desc { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
+
+        .hero-card { background: linear-gradient(135deg, var(--card-dark), var(--bg-dark)); padding: 30px 25px; border-radius: 20px; margin-bottom: 20px; text-align: center; border: 1px solid rgba(230, 179, 37, 0.3); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .hero-card h2 { font-size: 1.6rem; margin-bottom: 15px; line-height: 1.2; color: var(--primary); font-weight: 800; }
+        .btn-call-large { background: var(--primary); color: #0B132B; width: 100%; padding: 18px; border-radius: 15px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(230, 179, 37, 0.3); margin-top: 15px; transition: 0.2s; }
+        .btn-call-large:active { transform: scale(0.98); }
+        .btn-zalo { background: var(--zalo-blue); color: white; width: 100%; padding: 15px; border-radius: 15px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; margin-top: 12px; }
+
+        .services-image-section { background-color: var(--card-dark); padding: 30px 20px; border-radius: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; text-align: center; }
+        .service-box { display: flex; flex-direction: column; align-items: center; }
+        .service-box img { width: 100%; max-width: 200px; height: 130px; object-fit: contain; margin-bottom: 15px; border-radius: 10px; }
+        .service-box h4 { font-size: 1.1rem; color: #fff; font-weight: 600; margin-bottom: 10px; line-height: 1.4; min-height: 45px; }
+        .service-box p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+        
+        .text-highlight-box { background-color: var(--primary); color: #0B132B; padding: 5px 12px; line-height: 1.8; font-weight: 700; font-size: 0.85rem; border-radius: 5px; display: inline-block; }
+        .text-highlight-box a { color: #0B132B; text-decoration: none; }
+
+        .party-banner { display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); }
+        @media (min-width: 768px) { .party-banner { flex-direction: row; } }
+        .party-banner-left { background: linear-gradient(135deg, #1C2541, #10182E); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
+        .party-banner-left .sub-title { color: var(--primary); font-weight: 800; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .party-banner-left h2 { color: white; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px; }
+        .party-banner-left .btn-banner { background-color: var(--primary); color: #0B132B; padding: 14px 28px; text-decoration: none; font-weight: 800; font-size: 1rem; border-radius: 8px; width: max-content; }
+        .party-banner-right { flex: 1; min-height: 250px; background: #000; }
+        /* 🎀 Bé Lôi chuyển chế độ hiển thị từ "cover" sang "contain" để KHÔNG BAO GIỜ bị cắt xén ảnh, và lấp đầy khoảng trống bằng màu nền tối. 🎀 */
+        .party-banner-right img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block; 
+            opacity: 1; /* Tăng độ mờ lên để nhìn rõ hình */
         }
-        .hero-card h2 { font-size: 1.5rem; margin-bottom: 10px; line-height: 1.2; color: var(--primary); }
-        .btn-call-large {
-            background: var(--primary); color: #000; width: 100%;
-            padding: 18px; border-radius: 15px; text-decoration: none;
-            display: flex; align-items: center; justify-content: center;
-            gap: 10px; font-weight: 800; font-size: 1.2rem;
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2); margin-top: 15px;
-        }
-        .btn-zalo {
-            background: var(--zalo-blue); color: white; width: 100%;
-            padding: 15px; border-radius: 15px; text-decoration: none;
-            display: flex; align-items: center; justify-content: center;
-            gap: 10px; font-weight: 700; margin-top: 10px;
-        }
 
-        .trust-box { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .trust-item { background: var(--card-dark); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-        .trust-item i { color: var(--primary); font-size: 1.5rem; margin-bottom: 8px; }
-        .trust-item p { font-size: 0.8rem; font-weight: 600; }
+        .trust-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .trust-item { background: var(--card-dark); padding: 18px 10px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        .trust-item i { color: var(--primary); font-size: 1.8rem; margin-bottom: 10px; }
+        .trust-item p { font-size: 0.85rem; font-weight: 600; color: #fff; }
 
-        /* BÁO GIÁ */
-        .price-card {
-            background: var(--card-dark); padding: 20px; border-radius: 15px;
-            margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;
-            border-left: 4px solid var(--primary);
-        }
-        .price-name h4 { font-size: 1rem; color: #fff; }
-        .price-name p { font-size: 0.75rem; color: var(--text-gray); }
-        .price-val { font-size: 1.2rem; font-weight: 800; color: var(--primary); }
+        .price-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .price-col { background: var(--card-dark); border-radius: 20px; padding: 25px; border: 1px solid rgba(230, 179, 37, 0.15); position: relative; overflow: hidden; }
+        .price-col::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--primary); }
+        .price-header { text-align: center; margin-bottom: 25px; }
+        .price-header h3 { font-size: 1.5rem; color: #fff; font-weight: 800; }
+        .price-list { list-style: none; }
+        .price-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+        .price-item:last-child { border-bottom: none; }
+        .item-label { font-size: 0.95rem; color: var(--text-gray); font-weight: 600; }
+        .item-value { font-size: 1rem; color: #fff; font-weight: 700; text-align: right; }
+        .item-value.highlight { color: var(--primary); font-size: 1.1rem; }
 
-        /* QUY TRÌNH */
-        .step { display: flex; gap: 15px; margin-bottom: 25px; position: relative; }
-        .step::after { content: ''; position: absolute; left: 17px; top: 35px; width: 2px; height: 30px; background: rgba(255,255,255,0.1); }
-        .step:last-child::after { display: none; }
-        .step-num { width: 35px; height: 35px; background: var(--primary); color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; }
-        .step-txt h4 { font-size: 1rem; margin-bottom: 4px; }
-        .step-txt p { font-size: 0.85rem; color: var(--text-gray); }
-
-        /* FOOTER INFO */
-        .footer-info { text-align: center; margin-top: 20px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-info { text-align: center; margin-top: 30px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-info p { font-size: 0.8rem; color: var(--text-gray); margin-bottom: 10px; }
-        .social-row { display: flex; justify-content: center; gap: 20px; }
-        .social-row a { color: white; font-size: 1.5rem; transition: 0.3s; }
+
+        .step { background: var(--card-dark); margin-bottom: 15px; padding: 20px; border-radius: 15px; display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .step-num { background: var(--primary); color: #0B132B; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(230, 179, 37, 0.2); }
+        .step-txt h4 { color: #fff; margin-bottom: 5px; font-size: 1.1rem; }
+        .step-txt p { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; }
+
+        .floating-socials {
+            position: fixed;
+            bottom: 105px; 
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1001;
+        }
+        .floating-socials a { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5); animation: floatBubble 3s infinite ease-in-out; transition: transform 0.2s; }
+        .floating-socials a:active { transform: scale(0.9); }
+        .floating-socials a.zl { background-color: #0068ff; }
+        .floating-socials a.fb { background-color: #1877f2; }
+        .floating-socials a.mail { background-color: #ea4335; }
+        .floating-socials a:nth-child(1) { animation-delay: 0s; }
+        .floating-socials a:nth-child(2) { animation-delay: 0.2s; }
+        .floating-socials a:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* VỀ CHÚNG TÔI */
+        .about-box { background: var(--card-dark); padding: 25px 20px; border-radius: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .quote-box { text-align: center; background: linear-gradient(135deg, rgba(230,179,37,0.1), var(--card-dark)); border: 1px solid rgba(230, 179, 37, 0.3); }
+        .quote-box h2 { font-size: 1.4rem; color: #fff; margin: 15px 0; line-height: 1.4; font-weight: 800; }
+        .quote-box p { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
+        .quote-box strong { color: var(--primary); }
+        
+        .reason-list { list-style: none; margin-top: 15px; }
+        .reason-list li { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start; }
+        .reason-list i { color: var(--success); font-size: 1.2rem; margin-top: 3px; }
+        .reason-list div { font-size: 0.9rem; color: var(--text-gray); line-height: 1.5; }
+        .reason-list strong { color: #fff; display: inline-block; margin-bottom: 3px; font-size: 0.95rem; }
+
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .stat-item { background: var(--bg-dark); padding: 20px 10px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-item h3 { color: var(--primary); font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
+        .stat-item p { color: var(--text-gray); font-size: 0.8rem; font-weight: 600; line-height: 1.4; }
+
+        /* SLIDER CSS - ĐÃ ĐƯỢC TỐI ƯU HÓA THEO CÁC LỜI NHẮN TRƯỚC */
+        .slider-container { width: 100%; aspect-ratio: 16 / 9; max-height: 450px; position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); background-color: #050814; }
+        .slide { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
+        .slide.active { opacity: 1; z-index: 1; }
+        /* Lớp bóng mờ đã được Bé Lôi làm mờ hơn để không che khuất hình ảnh. */
+        .slider-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 25%; background: linear-gradient(to top, rgba(11,19,43,0.5), transparent); z-index: 2; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">DRIVER<span> QUẢNG NGÃI</span></div>
+        <img src="laixeho/logo.png" alt="Logo Lái Xe Hộ" class="logo-img">
+        <div class="logo">Lái Xe Hộ<span> QUẢNG NGÃI</span></div>
         <div class="status"><i class="fa-solid fa-circle"></i> Tài xế đang trực tuyến (24/7)</div>
     </header>
 
     <main id="main-content">
         <div id="home" class="tab-content active">
+            
+            <div class="intro-section">
+                <h1>Dịch Vụ Lái Xe Hộ Quảng Ngãi<br>An Toàn Trên Mọi Cung Đường</h1>
+                <span class="intro-hotline">HOTLINE: 0949 850 830</span>
+                <p class="intro-desc">Đưa người và xe về nhà an toàn 24/7. Có mặt sau 15 phút tại TP. Quảng Ngãi và các huyện lân cận.</p>
+            </div>
+
+            <div class="services-image-section">
+                <div class="services-grid">
+                    <div class="service-box">
+                        <img src="laixeho/anh1.png" alt="Đưa người về nhà an toàn">
+                        <h4>Đưa người về nhà an toàn</h4>
+                        <p>"Bạn lỡ quá chén cùng bạn bè? Đừng lừa lái xe nguy hiểm! Đội ngũ lái xe hộ của chúng tôi sẽ giúp bạn về nhà an toàn, tránh bị xử lý nồng độ cồn và đảm bảo sức khỏe."</p>
+                    </div>
+                    <div class="service-box">
+                        <img src="laixeho/anh2.png" alt="Thuê tài xế">
+                        <h4>Thuê tài nguyên dành riêng theo giờ/ngày</h4>
+                        <p>"Dành cho khách hàng đi công tác, tiếp khách hoặc đi sự kiện nhưng không muốn tự lái. Tài xế chuyên nghiệp, am hiểu đường sá Quảng Ngãi và các tỉnh miền Trung."</p>
+                    </div>
+                    <div class="service-box">
+                        <img src="laixeho/anh3.png" alt="Đi tỉnh">
+                        <h4>Lái xe hộ đường dài &<br>Đi tỉnh</h4>
+                        <p>"Bạn cần di chuyển từ Quảng Ngãi đi Đà Nẵng, Quy Nhơn, Chu Lai... nhưng mệt mỏi vì đường xa? Hãy để chúng tôi cầm lái, bạn chỉ việc nghỉ ngơi trên xe."</p>
+                    </div>
+                    <div class="service-box">
+                        <img src="laixeho/anh4.png" alt="Booking">
+                        <h4>Booking Service</h4>
+                        <br>
+                        <span class="text-highlight-box">
+                            <a href="tel:0949850830">Gọi ngay để đặt tài xế gần<br>bạn nhất</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="party-banner">
+                <div class="party-banner-left">
+                    <span class="sub-title">Lái Xe Hộ Quảng Ngãi</span>
+                    <h2>TIỆC TÙNG THẢ GA<br>ĐÃ CÓ CHÚNG TÔI<br>ĐƯA VỀ NHÀ!</h2>
+                    <a href="tel:0949850830" class="btn-banner">Gọi Ngay 0949 850 830</a>
+                </div>
+                <div class="party-banner-right">
+                    <img src="laixeho/anh5.png" alt="Banner Dịch Vụ">
+                </div>
+            </div>
+
             <div class="hero-card">
-                <p style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">DỊCH VỤ UY TÍN - TẬN TÂM</p>
-                <h2>An Toàn Tuyệt Đối<br>Cho Bạn & Xế Cưng</h2>
+                <p style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">ĐÃ UỐNG RƯỢU BIA - KHÔNG LÁI XE</p>
+                <h2>ĐẶT LÁI XE NGAY</h2>
                 <a href="tel:0949850830" class="btn-call-large">
                     <i class="fa-solid fa-phone-volume"></i> GỌI: 0949.850.830
                 </a>
@@ -138,127 +303,180 @@
             </div>
 
             <div class="trust-box">
-                <div class="trust-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <p>Lái xe chuyên nghiệp</p>
-                </div>
-                <div class="trust-item">
-                    <i class="fa-solid fa-bolt"></i>
-                    <p>Có mặt sau 15p</p>
-                </div>
-                <div class="trust-item">
-                    <i class="fa-solid fa-coins"></i>
-                    <p>Giá luôn rẻ nhất</p>
-                </div>
-                <div class="trust-item">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <p>Thông thạo đường</p>
-                </div>
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><p>Lái xe chuyên nghiệp</p></div>
+                <div class="trust-item"><i class="fa-solid fa-bolt"></i><p>Có mặt sau 15p</p></div>
+                <div class="trust-item"><i class="fa-solid fa-coins"></i><p>Giá luôn rẻ nhất</p></div>
+                <div class="trust-item"><i class="fa-solid fa-map-location-dot"></i><p>Thông thạo đường</p></div>
             </div>
 
             <div class="footer-info">
-                <p>Kết nối với chúng tôi qua</p>
-                <div class="social-row">
-                    <a href="https://www.facebook.com/share/1JMHbVL4QQ/?mibextid=wwXIfr" target="_blank" style="color: #1877f2;"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="mailto:laixehoquangngai@gmail.com" style="color: #ea4335;"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://zalo.me/0949850830" style="color: #0068ff;"><i class="fa-solid fa-comment-dots"></i></a>
-                </div>
-                <p style="margin-top: 20px; opacity: 0.5; font-size: 0.7rem;">&copy; 2026 Lái Xe Hộ Quảng Ngãi. Bản quyền thuộc về FoxST.</p>
+                <p style="margin-top: 20px; opacity: 0.5; font-size: 0.7rem;"> &copy; 2026 LaiXeHoQuangNgai.com. Bản quyền thuộc về LaiXeHoQuangNgai.com</p>
             </div>
         </div>
 
         <div id="prices" class="tab-content">
             <h3 style="margin-bottom: 20px; color: var(--primary); text-align: center;">Bảng Giá Dịch Vụ</h3>
-            
-            <div class="price-card">
-                <div class="price-name">
-                    <h4>Nội thành TP</h4>
-                    <p>Bán kính dưới 10km</p>
+            <div class="price-container">
+                <div class="price-col">
+                    <div class="price-header"><h3>Lái Hộ Xe Máy</h3></div>
+                    <ul class="price-list">
+                        <li class="price-item"><span class="item-label">Giá Cước Nội Thành</span><span class="item-value highlight">39 k</span></li>
+                        <li class="price-item"><span class="item-label">Quảng Đường Ưu Đãi</span><span class="item-value">5 km</span></li>
+                        <li class="price-item"><span class="item-label">Khu Vực Ưu Đãi</span><span class="item-value">T.P Quảng Ngãi</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian</span><span class="item-value">10 Phút</span></li>
+                        <li class="price-item"><span class="item-label">Cước Phát Sinh</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Cước Ngoại Thành</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian Chờ</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Giờ Làm Việc</span><span class="item-value">24/7</span></li>
+                    </ul>
                 </div>
-                <div class="price-val">200.000đ</div>
-            </div>
-
-            <div class="price-card">
-                <div class="price-name">
-                    <h4>Giá đường dài</h4>
-                    <p>Đi huyện hoặc đi tỉnh</p>
+                <div class="price-col">
+                    <div class="price-header"><h3>Lái Hộ Ô Tô</h3></div>
+                    <ul class="price-list">
+                        <li class="price-item"><span class="item-label">Giá Cước Nội Thành</span><span class="item-value highlight">79 k</span></li>
+                        <li class="price-item"><span class="item-label">Quảng Đường Ưu Đãi</span><span class="item-value">5 km</span></li>
+                        <li class="price-item"><span class="item-label">Khu Vực Ưu Đãi</span><span class="item-value">T.P Quảng Ngãi</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian</span><span class="item-value">10 Phút</span></li>
+                        <li class="price-item"><span class="item-label">Cước Phát Sinh</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Cước Ngoại Thành</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian Chờ</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Giờ Làm Việc</span><span class="item-value">24/7</span></li>
+                    </ul>
                 </div>
-                <div class="price-val">15.000đ/km</div>
-            </div>
-
-            <div class="price-card">
-                <div class="price-name">
-                    <h4>Thuê theo giờ</h4>
-                    <p>Tối thiểu 3 tiếng</p>
+                <div class="price-col">
+                    <div class="price-header"><h3>Thuê Tài Xế Liên Tỉnh</h3></div>
+                    <ul class="price-list">
+                        <li class="price-item"><span class="item-label">Giá Cước Nội Thành</span><span class="item-value highlight">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Quảng Đường Ưu Đãi</span><span class="item-value">Đặt Lịch</span></li>
+                        <li class="price-item"><span class="item-label">Khu Vực Ưu Đãi</span><span class="item-value">Toàn Tỉnh</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian</span><span class="item-value">Báo Trước</span></li>
+                        <li class="price-item"><span class="item-label">Cước Phát Sinh</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Cước Ngoại Thành</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Thời Gian Chờ</span><span class="item-value">Thỏa Thuận</span></li>
+                        <li class="price-item"><span class="item-label">Giờ Làm Việc</span><span class="item-value">24/7</span></li>
+                    </ul>
                 </div>
-                <div class="price-val">100.000đ/h</div>
-            </div>
-
-            <div style="background: rgba(255,215,0,0.1); padding: 15px; border-radius: 12px; font-size: 0.8rem; color: var(--primary); line-height: 1.5;">
-                <i class="fa-solid fa-circle-info"></i> Lưu ý: Giá có thể thay đổi nhẹ tùy vào thời điểm đêm khuya hoặc ngày Lễ Tết. Quý khách vui lòng liên hệ Zalo để nhận báo giá chính xác nhất.
             </div>
         </div>
 
         <div id="process" class="tab-content">
             <h3 style="margin-bottom: 25px; color: var(--primary); text-align: center;">Quy Trình 4 Bước</h3>
+            <div class="step"><div class="step-num">1</div><div class="step-txt"><h4>Đặt tài xế</h4><p>Gọi hotline hoặc nhắn Zalo địa chỉ của bạn.</p></div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-txt"><h4>Tiếp nhận xe</h4><p>Tài xế đến kiểm tra xe và xác nhận tài sản.</p></div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-txt"><h4>Lên đường</h4><p>Tài xế đưa bạn về nhà an toàn.</p></div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-txt"><h4>Hoàn tất</h4><p>Bàn giao xe và thanh toán.</p></div></div>
+        </div>
+
+        <div id="about" class="tab-content">
             
-            <div class="step">
-                <div class="step-num">1</div>
-                <div class="step-txt">
-                    <h4>Đặt tài xế</h4>
-                    <p>Gọi 0949.850.830 hoặc nhắn Zalo địa chỉ của bạn.</p>
+            <div class="slider-container">
+                <img src="laixeho/anh6.png" class="slide active" alt="Lái xe hộ 1">
+                <img src="laixeho/anh7.png" class="slide" alt="Lái xe hộ 2">
+                <img src="laixeho/anh8.png" class="slide" alt="Lái xe hộ 3">
+                <img src="laixeho/anh9.png" class="slide" alt="Lái xe hộ 3">
+                <div class="slider-overlay"></div>
+            </div>
+
+            <div class="about-box quote-box">
+                <h3 style="color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Chúng tôi cam kết</h3>
+                <h2>"Xe của khách là xe của mình<br>Tính mạng của khách là trên hết"</h2>
+                <p>Chúng tôi không chỉ lái xe, chúng tôi bảo vệ <strong>tính mạng, tài sản và hạnh phúc</strong> của gia đình bạn. Tuyệt đối tuân thủ luật giao thông và bảo quản "xế cưng" của khách hàng như xe nhà.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>250</h3>
+                    <p>Hơn 250 điểm đón</p>
+                </div>
+                <div class="stat-item">
+                    <h3>720</h3>
+                    <p>Đón hơn 720+ khách mỗi ngày</p>
+                </div>
+                <div class="stat-item">
+                    <h3>333</h3>
+                    <p>Đón hơn +333 chuyến xe mỗi ngày</p>
+                </div>
+                <div class="stat-item">
+                    <h3>75</h3>
+                    <p>Hơn 75+ Tài Xế Đang Chờ</p>
                 </div>
             </div>
 
-            <div class="step">
-                <div class="step-num">2</div>
-                <div class="step-txt">
-                    <h4>Tiếp nhận xe</h4>
-                    <p>Tài xế đến kiểm tra xe và xác nhận tài sản cá nhân.</p>
-                </div>
+            <div class="about-box">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.3rem;">Tại sao nên chọn chúng tôi?</h3>
+                <ul class="reason-list">
+                    <li>
+                        <i class="fa-solid fa-shield-check"></i> 
+                        <div><strong>An Toàn Tuyệt Đối:</strong> Tài xế dày dặn kinh nghiệm (bằng B2 trở lên), lý lịch rõ ràng, thái độ lịch sự.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-clock-fast"></i> 
+                        <div><strong>Nhanh Chóng:</strong> Có mặt ngay sau <strong>15 - 20 phút</strong> gọi điện.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-calendar-star"></i> 
+                        <div><strong>Phục Vụ 24/7:</strong> Bất kể đêm muộn, nắng mưa hay ngày lễ Tết.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-file-invoice-dollar"></i> 
+                        <div><strong>Giá Cước Minh Bạch:</strong> Báo giá rõ ràng trước khi di chuyển, không phát sinh chi phí ẩn.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-map-location-dot"></i> 
+                        <div><strong>Phạm Vi:</strong> Toàn tỉnh Quảng Ngãi (TP. Quảng Ngãi, Bình Sơn, Sơn Tịnh, Tư Nghĩa, Mộ Đức...)</div>
+                    </li>
+                </ul>
             </div>
 
-            <div class="step">
-                <div class="step-num">3</div>
-                <div class="step-txt">
-                    <h4>Lên đường</h4>
-                    <p>Tài xế đưa bạn về nhà an toàn theo lộ trình nhanh nhất.</p>
-                </div>
-            </div>
+            <div class="footer-info">
+    <p style="opacity: 0.5; font-size: 0.7rem;">
+        &copy; 2026 LaiXeHoQuangNgai.com. Bản quyền thuộc về LaiXeHoQuangNgai.com
+    </p>
+    <br><br>
+    <p style="opacity: 0.5; font-size: 0.7rem;">
+        Web được tạo bởi 
+        <a href="https://foxstudio.id.vn" target="_blank" style="text-decoration:none; color:inherit;">
+            FoxStudio
+        </a>
+    </p>
+</div>
 
-            <div class="step">
-                <div class="step-num">4</div>
-                <div class="step-txt">
-                    <h4>Hoàn tất</h4>
-                    <p>Bàn giao xe tại hầm/sân nhà và khách thanh toán.</p>
-                </div>
-            </div>
         </div>
     </main>
 
+    <div class="floating-socials">
+        <a href="https://zalo.me/0949850830" class="zl"><i class="fa-solid fa-comment-dots"></i></a>
+        <a href="https://www.facebook.com/share/1JMHbVL4QQ/?mibextid=wwXIfr" target="_blank" class="fb"><i class="fa-brands fa-facebook"></i></a>
+        <a href="mailto:laixehoquangngai@gmail.com" class="mail"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
     <nav class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'home')">
-            <i class="fa-solid fa-house"></i>
-            <span>Trang chủ</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab(this, 'prices')">
-            <i class="fa-solid fa-receipt"></i>
-            <span>Báo giá</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab(this, 'process')">
-            <i class="fa-solid fa-shield-check"></i>
-            <span>Quy trình</span>
-        </button>
+        <button class="tab-btn active" onclick="switchTab(this, 'home')"><i class="fa-solid fa-house"></i><span>Trang chủ</span></button>
+        <button class="tab-btn" onclick="switchTab(this, 'prices')"><i class="fa-solid fa-receipt"></i><span>Báo giá</span></button>
+        <button class="tab-btn" onclick="switchTab(this, 'process')"><i class="fa-solid fa-arrows-spin"></i><span>Quy trình</span></button>
+        <button class="tab-btn" onclick="switchTab(this, 'about')"><i class="fa-solid fa-circle-info"></i><span>Chúng tôi</span></button>
     </nav>
 
     <script>
+        // JS CHUYỂN TAB 
         function switchTab(btn, tabId) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
             btn.classList.add('active');
             document.getElementById(tabId).classList.add('active');
             document.getElementById('main-content').scrollTop = 0;
+        }
+
+        // JS SLIDER ẢNH 
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        if (slides.length > 0) {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 3000); 
         }
     </script>
 </body>
